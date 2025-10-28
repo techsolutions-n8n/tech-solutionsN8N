@@ -25,8 +25,14 @@ export default function Index() {
   const whyChooseRef = useRef<HTMLDivElement>(null);
   const offerRef = useRef<HTMLDivElement>(null);
 
+  const checkoutUrl = "https://go.perfectpay.com.br/PPU38CQ2LB9";
+
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const goToCheckout = () => {
+    window.location.href = checkoutUrl;
   };
 
   const features = [
@@ -257,7 +263,7 @@ export default function Index() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button onClick={() => scrollToSection(offerRef)} className="group h-14 px-10 rounded-xl bg-gradient-primary text-primary-foreground font-bold text-lg hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-3 whitespace-nowrap">
+            <button onClick={goToCheckout} className="group h-14 px-10 rounded-xl bg-gradient-primary text-primary-foreground font-bold text-lg hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-3 whitespace-nowrap">
               Quero Ter Acesso Agora
               <Zap className="w-5 h-5 group-hover:animate-pulse" />
             </button>
@@ -467,7 +473,7 @@ export default function Index() {
             </div>
 
             {/* CTA Button */}
-            <button className="group relative mx-auto max-w-md w-full h-16 rounded-xl bg-gradient-accent text-accent-foreground font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 mb-6 shadow-lg hover:shadow-xl hover:shadow-accent/50 hover:scale-105 active:scale-95">
+            <button onClick={goToCheckout} className="group relative mx-auto max-w-md w-full h-16 rounded-xl bg-gradient-accent text-accent-foreground font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 mb-6 shadow-lg hover:shadow-xl hover:shadow-accent/50 hover:scale-105 active:scale-95 cursor-pointer">
               <span className="relative z-10">Garantir Meu Acesso Agora</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
               <div className="absolute inset-0 rounded-xl bg-gradient-accent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10"></div>
@@ -542,7 +548,7 @@ export default function Index() {
             Não gostou? Devolvemos 100% do seu investimento sem perguntas. Zero
             risco.
           </p>
-          <button className="group h-14 px-12 rounded-xl bg-gradient-primary text-primary-foreground font-bold text-lg hover:shadow-glow transition-all duration-300 inline-flex items-center gap-3">
+          <button onClick={goToCheckout} className="group h-14 px-12 rounded-xl bg-gradient-primary text-primary-foreground font-bold text-lg hover:shadow-glow transition-all duration-300 inline-flex items-center gap-3">
             Começar Agora
             <Zap className="w-5 h-5 group-hover:animate-pulse" />
           </button>
